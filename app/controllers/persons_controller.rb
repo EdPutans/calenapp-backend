@@ -6,10 +6,13 @@ class PersonsController < ApplicationController
     render json: @persons
   end
 
+  def new
+    @person = Person.new
+  end
+
   def create
-    @person = Person.new(params[:client])
-    if @client.save
-      redirect_to @client
-    end
+    puts '-----------'
+    puts params
+    Person.create(params[:person])
   end
 end
